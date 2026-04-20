@@ -136,4 +136,4 @@ void testSecondBinaryOperationShowsIntermediateResult() {
 
     assertEquals(expected, actual);
 }
-
+}
