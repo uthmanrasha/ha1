@@ -106,3 +106,34 @@ class CalculatorTest {
 
 }
 
+@Test
+@DisplayName("should do nothing when equals is pressed without operation")
+void testEqualsWithoutOperation() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(7);
+    calc.pressEqualsKey();
+
+    String expected = "7";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
+
+
+@Test
+@DisplayName("should display intermediate result after pressing second binary operation")
+void testSecondBinaryOperationShowsIntermediateResult() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(2);
+    calc.pressBinaryOperationKey("+");
+    calc.pressDigitKey(3);
+    calc.pressBinaryOperationKey("+");
+
+    String expected = "5";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
+
